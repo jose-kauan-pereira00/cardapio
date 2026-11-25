@@ -1,10 +1,10 @@
 
 import './App.css'
 import { Card } from './components/card/card';
-import type { FoodData } from './interface/FoodData';
+import { useFoodData } from './hooks/useFoodData';
 
 function App() {
-  const data: FoodData[] = [];
+  const {data} = useFoodData();
 
 
   return (
@@ -12,7 +12,7 @@ function App() {
       <h1> Cardápio</h1>
       <div className='card-grid'>
 
-        {data.map(food => 
+        {data?.map(food => 
           <Card 
           price={food.price} 
           title={food.title} 
