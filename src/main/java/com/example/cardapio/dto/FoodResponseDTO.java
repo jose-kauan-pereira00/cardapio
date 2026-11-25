@@ -1,8 +1,12 @@
 package com.example.cardapio.dto;
 
-public record FoodResponseDTO(
-    Long id, String title,
-    String image, Integer price
-) {
+import com.example.cardapio.model.Food;
 
+public record FoodResponseDTO(
+        Long id, String title,
+        String image, Integer price) {
+
+    public FoodResponseDTO(Food food) {
+        this(food.getId(), food.getTitle(), food.getImage(), food.getPrice());
+    }
 }
