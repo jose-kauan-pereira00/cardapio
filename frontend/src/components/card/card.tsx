@@ -1,3 +1,5 @@
+import './card.css';
+
 interface CardProps {
     price: number,
     title: string,
@@ -9,8 +11,7 @@ export function Card(props : CardProps){
         <div className="card">
             <img src="" alt="" />
             <h2></h2>
-            <p> <b>Valor</b></p>
-
+            <p> <b>Valor: </b></p>
         </div>
     )
 }
