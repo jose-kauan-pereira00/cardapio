@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFoodDataMutate } from "../../hooks/useFoodDataMutate";
 import type { FoodData } from "../../interface/FoodData";
 import "./modal.css";
@@ -11,8 +11,8 @@ interface InputProps {
   updateValue(value: any): void;
 }
 
-interface CreateModalProps {
-  closeModal?: () => void;
+interface ModalProps{
+    closeModal():void
 }
 
 const Input = ({
@@ -40,12 +40,12 @@ const Input = ({
   );
 };
 
-export function CreateModal({ closeModal }: CreateModalProps) {
+export function CreateModal({ closeModal }: ModalProps) {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
 
-  const { mutate } = useFoodDataMutate();
+  const { mutate, isSuccess } = useFoodDataMutate();
 
   const submit = () => {
     const foodData: FoodData = {
@@ -54,8 +54,12 @@ export function CreateModal({ closeModal }: CreateModalProps) {
       image,
     };
     mutate(foodData);
-    closeModal?.();
   };
+
+  useEffect(() => {
+    if(!isSuccess) return;
+    closeModal();
+  }, [isSuccess])
 
   return (
     <div
