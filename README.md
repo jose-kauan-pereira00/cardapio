@@ -1,20 +1,27 @@
-## Visão Geral
+## Overview
 
-Apenas um projeto simples para se aprimorar em tecnologias como React, Querys, REST e Typescript, além de conexões do backend e do frontend. Feito com base em duas videos aulas da Fernada Kipper. Link [Link](https://youtu.be/WHruc3_2z68)
+A simple project designed to improve skills in technologies such as React, queries, REST, and TypeScript, as well as the integration between the backend and frontend. It is based on two video tutorials by Fernanda Kipper. Link: [Link](https://youtu.be/WHruc3_2z68)
 
-## Rotas
+## Routes
 
-Para os Verbos de POST e GET:
+For POST and GET requests:
 
 ```
 /food
-
 ```
 
-Para o método de DELETE:
+For the DELETE method:
 
 ```
-/food{id}
+/food/{id}
 ```
 
-Vale ressaltar que no frontend so foi implementado os métodos de POST e GET
+Note that only the POST and GET methods have been implemented in the frontend.
+
+## About the Frontend
+
+The frontend was developed using <b>Vite</b> and React, primarily with TypeScript.
+
+## About the Backend
+
+Developed using <b>Spring</b> technologies—such as JPA, Spring Web, DevTools, etc.—with <b>PostgreSQL</b> as the database for storing <i>food</i> data.
