@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { useFoodDataMutate } from "../../hooks/useFoodDataMutate";
+import type { FoodData } from "../../interface/FoodData";
 
 interface InputProps{
     label: string,
@@ -19,6 +21,16 @@ export function CreateModal(){
     const[price, setPrice] = useState(0);
     const[image, setImage] = useState("");
 
+    const {mutate} = useFoodDataMutate();
+
+    const submit = () =>{
+        const foodData: FoodData = {
+            title,
+            price,
+            image
+        }
+        mutate(foodData)
+    }
 
 
     return(
@@ -30,6 +42,7 @@ export function CreateModal(){
                 <Input label="price" value={price} updateValue={setPrice}/>
                 <Input label="image" value={image} updateValue={setImage}/>
             </form>
+            <button onClick={submit} className="buttonSecondary"> Postar</button>
         </div>
     )
 }

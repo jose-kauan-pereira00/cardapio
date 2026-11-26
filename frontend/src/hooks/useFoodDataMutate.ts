@@ -10,7 +10,7 @@ const postData = async (data: FoodData): AxiosPromise<any> => {
     return res;
 }
 
-export function useFoodData(){
+export function useFoodDataMutate(){
     const queryClient = useQueryClient();
     const mutate = useMutation({
         mutationFn: postData,
